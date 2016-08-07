@@ -182,6 +182,7 @@ namespace DeveloperStartMenu
                 {
                     case "showTripToDestination":
 
+
 						await Windows.System.Launcher.LaunchUriAsync(new Uri("http://www.google.com"));
 
 						// Access the value of the {destination} phrase in the voice command
