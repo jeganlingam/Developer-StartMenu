@@ -27,7 +27,13 @@
       <Feedback> Cancelling trip to {destination}</Feedback>
       <VoiceCommandService Target="DeveloperStartMenuVoiceCommandService"/>
     </Command>
-
+    <Command Name="openVSO">
+      <Example> open my vso </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> open [my] vso</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> open [my] {builtin:AppName} vso</ListenFor>
+      <Feedback> opening visual studio online</Feedback>
+      <VoiceCommandService Target="DeveloperStartMenuVoiceCommandService"/>
+    </Command>
     <PhraseList Label="destination">
       <Item>London</Item>
       <Item>Las Vegas</Item>

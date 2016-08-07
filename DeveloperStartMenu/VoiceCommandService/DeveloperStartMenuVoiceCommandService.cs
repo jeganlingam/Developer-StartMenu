@@ -133,7 +133,10 @@ namespace DeveloperStartMenu.VoiceCommands
                             var cancelDestination = voiceCommand.Properties["destination"][0];
                             await SendCompletionMessageForCancellation(cancelDestination);
                             break;
-                        default:
+						case "openVSO":
+							await Windows.System.Launcher.LaunchUriAsync(new Uri("https://www.google.com"));
+							break;
+						default:
                             // As with app activation VCDs, we need to handle the possibility that
                             // an app update may remove a voice command that is still registered.
                             // This can happen if the user hasn't run an app since an update.
