@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
@@ -6,44 +6,55 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   IgnorableNamespaces="uap mp">
 
-  <Identity
-    Name="ce38ca23-199c-4c09-b41a-43d54c1921b3"
-    Publisher="CN=Jegan Lingam"
-    Version="1.0.0.0" />
+    <Identity
+      Name="Microsoft.SDKSamples.DeveloperStartMenu.CS"
+      Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+      Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ce38ca23-199c-4c09-b41a-43d54c1921b3" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
-  <Properties>
-    <DisplayName>DeveloperStartMenu</DisplayName>
-    <PublisherDisplayName>Jegan Lingam</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
-  </Properties>
+    <mp:PhoneIdentity PhoneProductId="29af4b1f-b694-462c-a848-2941b2af93ff" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
-  <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
-  </Dependencies>
+    <Properties>
+        <DisplayName>DeveloperStartMenu</DisplayName>
+        <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+        <Logo>Assets\StoreLogo-sdk.png</Logo>
+    </Properties>
 
-  <Resources>
-    <Resource Language="x-generate"/>
-  </Resources>
+    <Dependencies>
+        <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10586.0" MaxVersionTested="10.0.14393.0" />
+    </Dependencies>
 
-  <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="DeveloperStartMenu.App">
-      <uap:VisualElements
-        DisplayName="DeveloperStartMenu"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="DeveloperStartMenu"
-        BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
-      </uap:VisualElements>
-    </Application>
-  </Applications>
+    <Resources>
+        <Resource Language="x-generate"/>
+    </Resources>
 
-  <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities>
+    <Applications>
+        <Application Id="App"
+          Executable="$targetnametoken$.exe"
+          EntryPoint="DeveloperStartMenu.App">
+            <uap:VisualElements
+              DisplayName="DeveloperStartMenu"
+              Square150x150Logo="Assets\squareTile-sdk.png"
+              Square44x44Logo="Assets\SmallTile-sdk.png"
+              Description="DeveloperStartMenu"
+              BackgroundColor="#00b2f0">
+                <uap:SplashScreen Image="Assets\Splash-sdk.png" />
+                <uap:DefaultTile>
+                    <uap:ShowNameOnTiles>
+                        <uap:ShowOn Tile="square150x150Logo" />
+                    </uap:ShowNameOnTiles>
+                </uap:DefaultTile>
+            </uap:VisualElements>
+            <Extensions>
+              <uap:Extension Category="windows.appService" EntryPoint="DeveloperStartMenu.VoiceCommands.DeveloperStartMenuVoiceCommandService">
+                <uap:AppService Name="DeveloperStartMenuVoiceCommandService"/>
+              </uap:Extension>
+              <uap:Extension Category="windows.personalAssistantLaunch"/>
+            </Extensions>
+        </Application>
+    </Applications>
+
+    <Capabilities>
+        <Capability Name="internetClient" />
+    </Capabilities>
 </Package>
