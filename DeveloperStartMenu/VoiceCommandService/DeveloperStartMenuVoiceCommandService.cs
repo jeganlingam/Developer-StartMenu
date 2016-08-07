@@ -171,7 +171,8 @@ namespace DeveloperStartMenu.VoiceCommands
             // We might have multiple trips to the destination. For now, we just pick the first.
             IEnumerable<Model.Trip> trips = store.Trips.Where(p => p.Destination == destination);
             Model.Trip trip = null;
-            if (trips.Count() > 1)
+
+			if (trips.Count() > 1)
             {
                 // If there is more than one trip, provide a disambiguation screen rather than just picking one
                 // however, more advanced logic here might be ideal (ie, if there's a significant number of items,

@@ -203,14 +203,14 @@ namespace DeveloperStartMenu.ViewModel
 
                 if (VoiceCommandDefinitionManager.InstalledCommandDefinitions.TryGetValue("DeveloperStartMenuCommandSet_" + countryCode, out commandDefinitions))
                 {
-                    List<string> destinations = new List<string>();
-                    foreach (Model.Trip t in store.Trips)
-                    {
-                        destinations.Add(t.Destination);
-                    }
+					List<string> destinations = new List<string>();
+					foreach (Model.Trip t in store.Trips)
+					{
+						destinations.Add(t.Destination);
+					}
 
-                    await commandDefinitions.SetPhraseListAsync("destination", destinations);
-                }
+					await commandDefinitions.SetPhraseListAsync("destination", destinations);
+				}
             }
             catch (Exception ex)
             {
