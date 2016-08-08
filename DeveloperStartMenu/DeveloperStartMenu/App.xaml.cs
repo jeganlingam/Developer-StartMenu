@@ -19,7 +19,6 @@ using DeveloperStartMenu.Common;
 using Windows.Media.SpeechRecognition;
 using System.Linq;
 using Windows.Storage;
-using System.Collections.Generic;
 
 namespace DeveloperStartMenu
 {
@@ -112,7 +111,7 @@ namespace DeveloperStartMenu
             {
                 System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());
             }
-        }
+		}
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails

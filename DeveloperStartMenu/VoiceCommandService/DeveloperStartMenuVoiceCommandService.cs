@@ -21,6 +21,7 @@ using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.ApplicationModel.VoiceCommands;
 using Windows.Storage;
+using Windows.System;
 
 namespace DeveloperStartMenu.VoiceCommands
 {
@@ -134,7 +135,21 @@ namespace DeveloperStartMenu.VoiceCommands
                             await SendCompletionMessageForCancellation(cancelDestination);
                             break;
 						case "openVSO":
-							await Windows.System.Launcher.LaunchUriAsync(new Uri("https://www.google.com"));
+							var tempUri = new Uri("https://www.google.com");
+							var userMessage = new VoiceCommandUserMessage();
+							bool success = await Launcher.LaunchUriAsync(tempUri);
+
+							if (success)
+							{
+								userMessage.DisplayMessage = "Success invoking browser" + ":URL=" + tempUri.ToString() + Environment.NewLine;
+							}
+							else
+							{
+								userMessage.DisplayMessage = "Fail invoking browser" + ":URL=" + tempUri.ToString() + Environment.NewLine;
+							}
+
+							var response = VoiceCommandResponse.CreateResponse(userMessage);
+							await voiceServiceConnection.ReportSuccessAsync(response);
 							break;
 						default:
                             // As with app activation VCDs, we need to handle the possibility that
