@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevWebApi", "DevWebApi\DevWebApi.csproj", "{E6632802-501D-4B45-9194-3F046BE25CFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevWebApiApp", "DevWebApiApp\DevWebApiApp.csproj", "{F82FFC7F-5452-47D5-8F97-DA3DCE0411C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E6632802-501D-4B45-9194-3F046BE25CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6632802-501D-4B45-9194-3F046BE25CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6632802-501D-4B45-9194-3F046BE25CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6632802-501D-4B45-9194-3F046BE25CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F82FFC7F-5452-47D5-8F97-DA3DCE0411C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82FFC7F-5452-47D5-8F97-DA3DCE0411C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82FFC7F-5452-47D5-8F97-DA3DCE0411C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82FFC7F-5452-47D5-8F97-DA3DCE0411C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

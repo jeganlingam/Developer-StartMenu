@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace DevWebApi
+namespace DevWebApiApp
 {
 	public class Startup
 	{

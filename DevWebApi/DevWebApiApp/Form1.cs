@@ -1,15 +1,34 @@
 ﻿using Microsoft.Owin.Hosting;
 using System;
 using System.Diagnostics;
-using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace DevWebApi
+namespace DevWebApiApp
 {
-	class Program
+	public partial class Form1 : Form
 	{
-		[STAThread]
-		static void Main(string[] args)
+		public Form1()
+		{
+			InitializeComponent();
+		}
+
+		private void Form1_Resize(object sender, EventArgs e)
+		{
+			if (FormWindowState.Minimized == this.WindowState)
+			{
+				notifyIcon1.Visible = true;
+				notifyIcon1.ShowBalloonTip(100);
+				this.Hide();
+			}
+			else if (FormWindowState.Normal == this.WindowState)
+			{
+				notifyIcon1.Visible = false;
+			}
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
 		{
 			bool result;
 			var mutex = new System.Threading.Mutex(true, "DevWebApi", out result);
@@ -18,7 +37,7 @@ namespace DevWebApi
 				return;
 			}
 
-			HostWebApi();
+			Task.Run(() => HostWebApi());
 		}
 
 		private static void HostWebApi()
@@ -42,13 +61,19 @@ namespace DevWebApi
 						while (true);
 					}
 				}
-				catch(Exception ex)
+				catch (Exception ex)
 				{
 					Trace.TraceError($"{DateTime.Now} - {ex.ToString()}");
 					Thread.Sleep(TimeSpan.FromMinutes(1));
 				}
 			}
 			while (true);
+		}
+
+		private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			this.Show();
+			this.BringToFront();
 		}
 	}
 }
