@@ -105,6 +105,10 @@
       <Project>{0e177301-05b1-4225-b0f2-ebc4612b0b4e}</Project>
       <Name>DeveloperStartMenu.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevWebApiClientLib\DevWebApiClientLib.csproj">
+      <Project>{16AD158C-FD60-4167-8927-919A39D08364}</Project>
+      <Name>DevWebApiClientLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\GreyTile.scale-100.png">

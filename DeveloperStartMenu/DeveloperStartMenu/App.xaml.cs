@@ -107,9 +107,6 @@ namespace DeveloperStartMenu
                 {
                     await locator.TripViewModel.UpdateDestinationPhraseList();
                 }
-
-				DevWebApiClient client = new DevWebApiClient();
-				await client.InvokeProcessAsync(new ProcessInfo() { FileName = @"c:\windows\system32\notepad.exe", StartAsAdministrator = true });
 			}
             catch (Exception ex)
             {

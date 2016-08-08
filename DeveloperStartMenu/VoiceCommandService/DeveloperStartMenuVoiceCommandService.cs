@@ -9,6 +9,7 @@
 //
 //*********************************************************
 
+using DevWebApiClientLib;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -135,21 +136,10 @@ namespace DeveloperStartMenu.VoiceCommands
                             await SendCompletionMessageForCancellation(cancelDestination);
                             break;
 						case "openVSO":
-							var tempUri = new Uri("https://www.google.com");
-							var userMessage = new VoiceCommandUserMessage();
-							bool success = await Launcher.LaunchUriAsync(tempUri);
-
-							if (success)
-							{
-								userMessage.DisplayMessage = "Success invoking browser" + ":URL=" + tempUri.ToString() + Environment.NewLine;
-							}
-							else
-							{
-								userMessage.DisplayMessage = "Fail invoking browser" + ":URL=" + tempUri.ToString() + Environment.NewLine;
-							}
-
-							var response = VoiceCommandResponse.CreateResponse(userMessage);
-							await voiceServiceConnection.ReportSuccessAsync(response);
+							PerformRemoteAction(@"https://dynamicscrm.visualstudio.com", false);
+							break;
+						case "openVS":
+							PerformRemoteAction(@"E:\Repos\Test\ConsoleApplication1\ConsoleApplication1.sln", true);
 							break;
 						default:
                             // As with app activation VCDs, we need to handle the possibility that
@@ -165,6 +155,16 @@ namespace DeveloperStartMenu.VoiceCommands
                 }
             }
         }
+
+		private async void PerformRemoteAction(string url, bool startAsAdmin)
+		{
+			DevWebApiClient client = new DevWebApiClient();
+			await client.InvokeProcessAsync(new ProcessInfo() { FileName = url, StartAsAdministrator = startAsAdmin });
+			var userMessage = new VoiceCommandUserMessage();
+			userMessage.DisplayMessage = $"Success invoking url:{url}";
+			var response = VoiceCommandResponse.CreateResponse(userMessage);
+			await voiceServiceConnection.ReportSuccessAsync(response);
+		}
 
         /// <summary>
         /// Handle the Trip Cancellation task. This task demonstrates how to prompt a user

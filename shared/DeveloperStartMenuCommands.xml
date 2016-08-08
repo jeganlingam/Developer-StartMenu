@@ -27,13 +27,26 @@
       <Feedback> Cancelling trip to {destination}</Feedback>
       <VoiceCommandService Target="DeveloperStartMenuVoiceCommandService"/>
     </Command>
+    
     <Command Name="openVSO">
-      <Example> open my vso </Example>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase"> open [my] vso</ListenFor>
-      <ListenFor RequireAppName="ExplicitlySpecified"> open [my] {builtin:AppName} vso</ListenFor>
+      <Example> op vso </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> op vso</ListenFor>
       <Feedback> opening visual studio online</Feedback>
       <VoiceCommandService Target="DeveloperStartMenuVoiceCommandService"/>
     </Command>
+
+    <Command Name="openVS">
+      <Example> op vs </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> op vs {solution}</ListenFor>
+      <Feedback> opening visual studio solution</Feedback>
+      <VoiceCommandService Target="DeveloperStartMenuVoiceCommandService"/>
+    </Command>
+
+    <PhraseList Label="solution">
+      <Item>secret</Item>
+      <Item>cloudsync</Item>
+    </PhraseList>
+    
     <PhraseList Label="destination">
       <Item>London</Item>
       <Item>Las Vegas</Item>
