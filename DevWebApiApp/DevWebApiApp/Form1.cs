@@ -39,10 +39,14 @@ namespace DevWebApiApp
 			{
 				try
 				{
+					// Allow only callers from localhost
 					string baseAddress = "http://localhost:9000/";
 					Trace.TraceInformation($"{DateTime.Now} - Starting up web api: {baseAddress}");
 
-					using (WebApp.Start<Startup>(url: baseAddress))
+					StartOptions options = new StartOptions();
+					options.Urls.Add(baseAddress);
+
+					using (WebApp.Start<Startup>(options))
 					{
 						Trace.TraceInformation($"{DateTime.Now} - Started successfully");
 

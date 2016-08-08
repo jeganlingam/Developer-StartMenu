@@ -19,6 +19,7 @@ using DeveloperStartMenu.Common;
 using Windows.Media.SpeechRecognition;
 using System.Linq;
 using Windows.Storage;
+using DevWebApiClientLib;
 
 namespace DeveloperStartMenu
 {
@@ -106,7 +107,10 @@ namespace DeveloperStartMenu
                 {
                     await locator.TripViewModel.UpdateDestinationPhraseList();
                 }
-            }
+
+				DevWebApiClient client = new DevWebApiClient();
+				await client.InvokeProcessAsync(new ProcessInfo() { FileName = @"c:\windows\system32\notepad.exe", StartAsAdministrator = true });
+			}
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());

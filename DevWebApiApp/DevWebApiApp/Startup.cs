@@ -15,11 +15,9 @@ namespace DevWebApiApp
 		// parameter in the WebApp.Start method.
 		public void Configuration(IAppBuilder appBuilder)
 		{
-			HttpListener listener = (HttpListener)appBuilder.Properties["System.Net.HttpListener"];
-			listener.AuthenticationSchemes = AuthenticationSchemes.IntegratedWindowsAuthentication;
-
 			// Configure Web API for self-host. 
 			HttpConfiguration config = new HttpConfiguration();
+
 			config.Routes.MapHttpRoute(
 				name: "DefaultApi",
 				routeTemplate: "api/{controller}/{id}",

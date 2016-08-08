@@ -179,6 +179,10 @@
       <Project>{0e177301-05b1-4225-b0f2-ebc4612b0b4e}</Project>
       <Name>DeveloperStartMenu.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevWebApiClientLib\DevWebApiClientLib.csproj">
+      <Project>{16ad158c-fd60-4167-8927-919a39d08364}</Project>
+      <Name>DevWebApiClientLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VoiceCommandService\VoiceCommandService.csproj">
       <Project>{d9afc7c2-1919-43b8-b727-03198025434c}</Project>
       <Name>VoiceCommandService</Name>
