@@ -139,7 +139,8 @@ namespace DeveloperStartMenu.VoiceCommands
 							PerformRemoteAction(@"https://dynamicscrm.visualstudio.com", false);
 							break;
 						case "openVS":
-							PerformRemoteAction(@"E:\Repos\Test\ConsoleApplication1\ConsoleApplication1.sln", true);
+							var solution = voiceCommand.Properties["solution"][0];
+							PerformRemoteAction($@"E:\Repos\Test\ConsoleApplication1\ConsoleApplication1.sln\{solution}", true);
 							break;
 						default:
                             // As with app activation VCDs, we need to handle the possibility that
