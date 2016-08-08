@@ -30,13 +30,6 @@ namespace DevWebApiApp
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			bool result;
-			var mutex = new System.Threading.Mutex(true, "DevWebApi", out result);
-			if (!result)
-			{
-				return;
-			}
-
 			Task.Run(() => HostWebApi());
 		}
 
